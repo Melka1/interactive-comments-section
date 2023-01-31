@@ -6,11 +6,38 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
   <title>Frontend Mentor | Interactive comments section</title>
 </head>
 <body>
   <main>
-
+    <div class="comment--section">
+      <div class="score">
+        <img src="./images/icon-plus.svg" alt="" class="plus">
+        <p class="score--number">12</p>
+        <img src="./images/icon-minus.svg" alt="" class="minus">
+      </div>
+      <div class="comment--container">
+        <div class="header">
+          <img class="profile--pic" src="./images/avatars/image-amyrobson.png" alt="">
+          <p class="name">amyrobson</p>
+          <p class="timestamp">1 month ago</p>
+          <div class="controls">
+            <div class="delete"></div>
+            <div class="edit"></div>
+            <div class="reply">
+              <img src="./images/icon-reply.svg" alt="" >
+              <p>Reply</p>
+            </div>
+          </div>
+        </div>
+        <div class="comment--content">
+          <p class="comment">Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.</p>
+        </div>
+      </div>
+    </div>
   </main>
   <footer>
     <div class="attribution">
