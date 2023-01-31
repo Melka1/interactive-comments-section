@@ -14,6 +14,7 @@ body {
   align-items: center;
   gap: 20px;
   padding-top: 50px;
+  padding-bottom: 20px;
   border: 1px solid;
   font-family: "Rubik", sans-serif;
   background-color: hsl(228deg, 33%, 97%);
@@ -22,6 +23,9 @@ body {
 main {
   width: 700px;
   min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 main .comment--section {
   padding: 20px;
@@ -47,6 +51,19 @@ main .comment--section .score {
 main .comment--section .score p {
   color: hsl(238deg, 40%, 52%);
   font-weight: bold;
+  width: 18px;
+  text-align: center;
+}
+main .comment--section .score .plus {
+  height: 10px;
+  width: 10px;
+}
+main .comment--section .score .minus {
+  height: 2px;
+  width: 10px;
+}
+main .comment--section .score .minus, main .comment--section .score .plus {
+  margin: auto;
 }
 main .comment--section .comment--container {
   gap: 15px;
@@ -67,19 +84,32 @@ main .comment--section .header .name {
   font-weight: bold;
   color: hsl(212deg, 24%, 26%);
 }
-main .comment--section .header .name, main .comment--section .header .timestamp {
+main .comment--section .header .name, main .comment--section .header .timestamp, main .comment--section .header .who {
   margin-left: 10px;
+}
+main .comment--section .header .who {
+  padding: 2px 5px;
+  background-color: hsl(238deg, 40%, 52%);
+  color: hsl(0deg, 0%, 100%);
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 main .comment--section .header .controls {
   margin-left: auto;
   display: flex;
 }
-main .comment--section .header .controls p {
-  font-weight: bold;
+main .comment--section .header .controls .reply p {
   color: hsl(238deg, 40%, 52%);
+}
+main .comment--section .header .controls .delete p {
+  color: hsl(358deg, 79%, 66%);
+}
+main .comment--section .header .controls div {
+  margin-left: 10px;
 }
 main .comment--section .header .controls * {
   display: inline-block;
+  font-weight: bold;
 }
 main .comment--section .comment--content .comment {
   line-height: 1.5rem;
@@ -91,4 +121,13 @@ main .comment--section .comment--content .comment {
 }
 .attribution a {
   color: hsl(228deg, 45%, 44%);
+}
+
+.main {
+  width: 100%;
+}
+
+.sub {
+  align-self: flex-end;
+  width: 90%;
 }/*# sourceMappingURL=styles.css.map */
