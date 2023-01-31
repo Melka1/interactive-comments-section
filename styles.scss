@@ -1,0 +1,38 @@
+$Moderate-blue: hsl(238, 40%, 52%);
+$Soft-Red: hsl(358, 79%, 66%);
+$Light-grayish-blue: hsl(239, 57%, 85%);
+$Pale-red: hsl(357, 100%, 86%);
+$Dark-blue: hsl(212, 24%, 26%);
+$Grayish-Blue: hsl(211, 10%, 45%);
+$Light-gray: hsl(223, 19%, 93%);
+$Very-light-gray: hsl(228, 33%, 97%);
+$White: hsl(0, 0%, 100%);
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-size: 16px;
+    width: 1440px;
+    height: 780px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+    border: 1px solid;
+}
+
+
+
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+    a { 
+        color: hsl(228, 45%, 44%); 
+    }
+
+}
+
