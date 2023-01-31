@@ -67,9 +67,18 @@ main .comment--section .score .minus, main .comment--section .score .plus {
 }
 main .comment--section .comment--container {
   gap: 15px;
+  width: 100%;
 }
 main .comment--section .comment--container .comment, main .comment--section .comment--container .timestamp {
   color: hsl(211deg, 10%, 45%);
+}
+main .comment--section .comment--container .button--update {
+  align-self: flex-end;
+  padding: 10px 30px;
+  background-color: hsl(238deg, 40%, 52%);
+  color: white;
+  border: none;
+  border-radius: 7px;
 }
 main .comment--section .header {
   display: flex;
@@ -98,7 +107,7 @@ main .comment--section .header .controls {
   margin-left: auto;
   display: flex;
 }
-main .comment--section .header .controls .reply p {
+main .comment--section .header .controls .reply p, main .comment--section .header .controls .edit p {
   color: hsl(238deg, 40%, 52%);
 }
 main .comment--section .header .controls .delete p {
@@ -111,8 +120,61 @@ main .comment--section .header .controls * {
   display: inline-block;
   font-weight: bold;
 }
-main .comment--section .comment--content .comment {
+main .comment--section .comment--content {
+  width: 100%;
+}
+main .comment--section .comment--content .comment, main .comment--section .comment--content textarea {
   line-height: 1.5rem;
+}
+main .comment--section .comment--content textarea {
+  width: 100%;
+  height: 120px;
+  padding: 15px;
+  font-size: 1rem;
+  font-family: "Rubik", sans-serif;
+  border-radius: 7px;
+  border: 1px solid hsl(223deg, 19%, 93%);
+  outline: none;
+  color: hsl(211deg, 10%, 45%);
+  resize: none;
+}
+main .comment--section .comment--content textarea:focus {
+  border-color: hsl(238deg, 40%, 52%);
+}
+main .comment--reply, main .comment--add {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  border-radius: 10px;
+  background-color: hsl(0deg, 0%, 100%);
+}
+main .comment--reply img, main .comment--add img {
+  width: 40px;
+  height: 40px;
+}
+main .comment--reply textarea, main .comment--add textarea {
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  font-size: 1rem;
+  font-family: "Rubik", sans-serif;
+  border-radius: 7px;
+  border: 1px solid hsl(223deg, 19%, 93%);
+  outline: none;
+  color: hsl(211deg, 10%, 45%);
+  resize: none;
+}
+main .comment--reply textarea:focus, main .comment--add textarea:focus {
+  border-color: hsl(238deg, 40%, 52%);
+}
+main .comment--reply button, main .comment--add button {
+  padding: 10px 30px;
+  border-radius: 7px;
+  background-color: hsl(238deg, 40%, 52%);
+  border: none;
+  color: hsl(0deg, 0%, 100%);
 }
 
 .attribution {
