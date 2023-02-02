@@ -194,6 +194,6 @@ main .comment--reply button, main .comment--add button {
   width: 90%;
 }
 
-.reply:hover, .edit:hover, .delete:hover {
+.reply:hover, .edit:hover, .delete:hover, .button--update:hover {
   cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */
