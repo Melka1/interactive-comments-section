@@ -14,7 +14,7 @@
 <body>
   <main>
     
-    <div class="comment--section main">
+    <div class="comment--section main"  id="msg1">
       <div class="score">
         <img src="./images/icon-plus.svg" alt="" class="plus">
         <p class="score--number">12</p>
@@ -27,10 +27,9 @@
           <p class="timestamp">1 month ago</p>
           <div class="controls">
             <div class="delete">
-              
             </div>
             <div class="edit"></div>
-            <div class="reply">
+            <div class="reply" onclick="handleReply('msg1', 'main', 'amyrobson')" >
               <img src="./images/icon-reply.svg" alt="" >
               <p>Reply</p>
             </div>
@@ -42,13 +41,13 @@
       </div>
     </div>
 
-    <div class="comment--reply">
+    <!-- <div class="comment--reply">
       <img src="./images/avatars/image-juliusomo.png" alt="">
       <textarea name="reply" id="" cols="30" rows="10"></textarea>
       <button class="button--reply">REPLY</button>
-    </div>
+    </div> -->
 
-    <div class="comment--section main">
+    <div class="comment--section main" id="msg2">
       <div class="score">
         <img src="./images/icon-plus.svg" alt="" class="plus">
         <p class="score--number">5</p>
@@ -62,7 +61,7 @@
           <div class="controls">
             <div class="delete"></div>
             <div class="edit"></div>
-            <div class="reply">
+            <div class="reply" onclick="handleReply('msg2', 'main', 'maxblagun')" >
               <img src="./images/icon-reply.svg" alt="" >
               <p>Reply</p>
             </div>
@@ -74,7 +73,7 @@
       </div>
     </div>
 
-    <div class="comment--section sub">
+    <div class="comment--section sub" id="submsg1">
       <div class="score">
         <img src="./images/icon-plus.svg" alt="" class="plus">
         <p class="score--number">4</p>
@@ -90,7 +89,7 @@
               
             </div>
             <div class="edit"></div>
-            <div class="reply">
+            <div class="reply" onclick="handleReply('submsg1', 'sub', 'ramsesmiron')">
               <img src="./images/icon-reply.svg" alt="" >
               <p>Reply</p>
             </div>
@@ -102,13 +101,7 @@
       </div>
     </div>
 
-    <div class="comment--reply sub">
-      <img src="./images/avatars/image-juliusomo.png" alt="">
-      <textarea name="reply" id="" cols="30" rows="10"></textarea>
-      <button class="button--reply">REPLY</button>
-    </div>
-
-    <div class="comment--section sub">
+    <div class="comment--section sub"  id="rply1">
       <div class="score">
         <img src="./images/icon-plus.svg" alt="" class="plus">
         <p class="score--number">2</p>
@@ -125,7 +118,7 @@
               <img src="./images/icon-delete.svg" alt="">
               <p>Delete</p>
             </div>
-            <div class="edit">
+            <div class="edit"  onclick="handleEdit('rply1', 'comment--content')">
               <img src="./images/icon-edit.svg" alt="" >
               <p>Edit</p></div>
             <div class="reply">
@@ -138,38 +131,6 @@
       </div>
     </div>
 
-    <div class="comment--section sub">
-      <div class="score">
-        <img src="./images/icon-plus.svg" alt="" class="plus">
-        <p class="score--number">2</p>
-        <img src="./images/icon-minus.svg" alt="" class="minus">
-      </div>
-      <div class="comment--container">
-        <div class="header">
-          <img class="profile--pic" src="./images/avatars/image-juliusomo.png" alt="">
-          <p class="name">juliusomo</p>
-          <p class="who">you</p>
-          <p class="timestamp">2 days ago</p>
-          <div class="controls">
-            <div class="delete">
-              <img src="./images/icon-delete.svg" alt="">
-              <p>Delete</p>
-            </div>
-            <div class="edit">
-              <img src="./images/icon-edit.svg" alt="" >
-              <p>Edit</p></div>
-            <div class="reply">
-            </div>
-          </div>
-        </div>
-        <div class="comment--content">
-          <textarea cols="30" rows="10">I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.</textarea>
-        </div>
-        <button class="button--update">UPDATE</button>
-      </div>
-    </div>
-
-
     <div class="comment--add">
       <img src="./images/avatars/image-juliusomo.png" alt="">
       <textarea name="reply" id="" cols="30" rows="10"></textarea>
@@ -180,7 +141,7 @@
   <footer>
     <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
+      Coded by <a href="#">melka1</a>.
     </div>
   </footer>
   <script src="./script.js"></script>

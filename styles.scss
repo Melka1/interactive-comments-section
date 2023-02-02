@@ -213,3 +213,6 @@ main {
     width:90%;
 }
 
+.reply:hover, .edit:hover, .delete:hover {
+    cursor: pointer;
+}

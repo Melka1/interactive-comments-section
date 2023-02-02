@@ -1,0 +1,36 @@
+ <!-- <div class="comment--reply sub">
+      <img src="./images/avatars/image-juliusomo.png" alt="">
+      <textarea name="reply" id="" cols="30" rows="10"></textarea>
+      <button class="button--reply">REPLY</button>
+    </div> -->
+
+<div class="comment--section sub" id="rply1">
+      <div class="score">
+        <img src="./images/icon-plus.svg" alt="" class="plus">
+        <p class="score--number">2</p>
+        <img src="./images/icon-minus.svg" alt="" class="minus">
+      </div>
+      <div class="comment--container">
+        <div class="header">
+          <img class="profile--pic" src="./images/avatars/image-juliusomo.png" alt="">
+          <p class="name">juliusomo</p>
+          <p class="who">you</p>
+          <p class="timestamp">2 days ago</p>
+          <div class="controls">
+            <div class="delete">
+              <img src="./images/icon-delete.svg" alt="">
+              <p>Delete</p>
+            </div>
+            <div class="edit">
+              <img src="./images/icon-edit.svg" alt="" >
+              <p>Edit</p></div>
+            <div class="reply">
+            </div>
+          </div>
+        </div>
+        <div class="comment--content">
+          <textarea cols="30" rows="10">I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.</textarea>
+        </div>
+        <button class="button--update">UPDATE</button>
+      </div>
+    </div>
