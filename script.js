@@ -123,6 +123,7 @@ const newComment = async()=>{
     await fetch("./data.json")
         .then(res=>res.json())
         .then(data=> {
+            localStorage.setItem("data", JSON.stringify(data))
             element = data.comments.map((com, index)=>{
                 return `
                 <div class="comment--section main"  id="mainmsg${index}">
