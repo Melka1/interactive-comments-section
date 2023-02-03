@@ -34,3 +34,118 @@
         <button class="button--update">UPDATE</button>
       </div>
     </div>
+
+
+
+
+
+<div class="comment--section main"  id="mainmsg1">
+      <div class="score">
+        <img src="./images/icon-plus.svg" alt="" class="plus">
+        <p class="score--number">12</p>
+        <img src="./images/icon-minus.svg" alt="" class="minus">
+      </div>
+      <div class="comment--container">
+        <div class="header">
+          <img class="profile--pic" src="./images/avatars/image-amyrobson.png" alt="">
+          <p class="name">amyrobson</p>
+          <p class="timestamp">1 month ago</p>
+          <div class="controls">
+            <div class="delete">
+            </div>
+            <div class="edit"></div>
+            <div class="reply" onclick="handleReply('mainmsg1', 'main', 'amyrobson')" >
+              <img src="./images/icon-reply.svg" alt="" >
+              <p>Reply</p>
+            </div>
+          </div>
+        </div>
+        <div class="comment--content">
+          <p class="comment">Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="comment--section main" id="mainmsg2">
+      <div class="score">
+        <img src="./images/icon-plus.svg" alt="" class="plus">
+        <p class="score--number">5</p>
+        <img src="./images/icon-minus.svg" alt="" class="minus">
+      </div>
+      <div class="comment--container">
+        <div class="header">
+          <img class="profile--pic" src="./images/avatars/image-maxblagun.png" alt="">
+          <p class="name">maxblagun</p>
+          <p class="timestamp">2 weeks ago</p>
+          <div class="controls">
+            <div class="delete"></div>
+            <div class="edit"></div>
+            <div class="reply" onclick="handleReply('mainmsg2', 'main', 'maxblagun')" >
+              <img src="./images/icon-reply.svg" alt="" >
+              <p>Reply</p>
+            </div>
+          </div>
+        </div>
+        <div class="comment--content">
+          <p class="comment">Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="comment--section sub" id="submsg1">
+      <div class="score">
+        <img src="./images/icon-plus.svg" alt="" class="plus">
+        <p class="score--number">4</p>
+        <img src="./images/icon-minus.svg" alt="" class="minus">
+      </div>
+      <div class="comment--container">
+        <div class="header">
+          <img class="profile--pic" src="./images/avatars/image-ramsesmiron.png" alt="">
+          <p class="name">ramsesmiron</p>
+          <p class="timestamp">1 week ago</p>
+          <div class="controls">
+            <div class="delete">
+              
+            </div>
+            <div class="edit"></div>
+            <div class="reply" onclick="handleReply('submsg1', 'sub', 'ramsesmiron')">
+              <img src="./images/icon-reply.svg" alt="" >
+              <p>Reply</p>
+            </div>
+          </div>
+        </div>
+        <div class="comment--content">
+          <p class="comment">If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="comment--section sub"  id="submsg1rply1">
+      <div class="score">
+        <img src="./images/icon-plus.svg" alt="" class="plus">
+        <p class="score--number">2</p>
+        <img src="./images/icon-minus.svg" alt="" class="minus">
+      </div>
+      <div class="comment--container">
+        <div class="header">
+          <img class="profile--pic" src="./images/avatars/image-juliusomo.png" alt="">
+          <p class="name">juliusomo</p>
+          <p class="who">you</p>
+          <p class="timestamp">2 days ago</p>
+          <div class="controls">
+            <div class="delete">
+              <img src="./images/icon-delete.svg" alt="">
+              <p>Delete</p>
+            </div>
+            <div class="edit"  onclick="handleEdit('submsg1rply1', 'sub')">
+              <img src="./images/icon-edit.svg" alt="" >
+              <p>Edit</p></div>
+            <div class="reply">
+            </div>
+          </div>
+        </div>
+        <div class="comment--content">
+          <p class="comment">I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.</p>
+        </div>
+      </div>
+    </div>
