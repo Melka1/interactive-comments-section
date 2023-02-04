@@ -217,4 +217,67 @@ main .comment--reply button, main .comment--add button {
 
 .button--reply:hover, .button--update:hover, .send:hover {
   background-color: hsl(239deg, 57%, 85%);
+}
+
+.delete--container {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.delete--container .cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(211deg, 10%, 45%);
+  opacity: 0.7;
+  z-index: 1;
+}
+.delete--container .delete--popup {
+  border-radius: 10px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 20px;
+  background-color: hsl(0deg, 0%, 100%);
+  z-index: 2;
+}
+.delete--container .delete--popup h1 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: hsl(212deg, 24%, 26%);
+}
+.delete--container .delete--popup p {
+  color: hsl(211deg, 10%, 45%);
+}
+.delete--container .delete--popup .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.delete--container .delete--popup .controls .delete {
+  background-color: hsl(358deg, 79%, 66%);
+  color: hsl(0deg, 0%, 100%);
+}
+.delete--container .delete--popup .controls .delete:hover {
+  background-color: hsl(357deg, 100%, 86%);
+}
+.delete--container .delete--popup .controls .cancel {
+  background-color: hsl(212deg, 24%, 26%);
+  color: hsl(0deg, 0%, 100%);
+}
+.delete--container .delete--popup .controls .cancel:hover {
+  background-color: hsl(211deg, 10%, 45%);
+}
+.delete--container .delete--popup button {
+  border: none;
+  border-radius: 5px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  padding: 10px 30px;
 }/*# sourceMappingURL=styles.css.map */
