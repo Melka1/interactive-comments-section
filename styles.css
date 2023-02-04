@@ -41,6 +41,7 @@ main .comment--section .score, main .comment--section .comment--container {
 }
 main .comment--section .score {
   padding: 10px 7px;
+  align-items: center;
   align-self: flex-start;
   border-radius: 5px;
   justify-content: center;
@@ -54,16 +55,12 @@ main .comment--section .score p {
   width: 18px;
   text-align: center;
 }
-main .comment--section .score .plus {
-  height: 10px;
-  width: 10px;
+main .comment--section .score svg {
+  fill: hsl(239deg, 57%, 85%);
 }
-main .comment--section .score .minus {
-  height: 2px;
-  width: 10px;
-}
-main .comment--section .score .minus, main .comment--section .score .plus {
-  margin: auto;
+main .comment--section .score svg:hover {
+  fill: hsl(238deg, 40%, 52%);
+  cursor: pointer;
 }
 main .comment--section .comment--container {
   gap: 15px;
@@ -72,10 +69,9 @@ main .comment--section .comment--container {
 main .comment--section .comment--container .comment, main .comment--section .comment--container .timestamp {
   color: hsl(211deg, 10%, 45%);
 }
-main .comment--section .comment--container .button--update {
+main .comment--section .comment--container button {
   align-self: flex-end;
   padding: 10px 30px;
-  background-color: hsl(238deg, 40%, 52%);
   color: white;
   border: none;
   border-radius: 7px;
@@ -110,8 +106,26 @@ main .comment--section .header .controls {
 main .comment--section .header .controls .reply p, main .comment--section .header .controls .edit p {
   color: hsl(238deg, 40%, 52%);
 }
+main .comment--section .header .controls .reply svg, main .comment--section .header .controls .edit svg {
+  fill: hsl(238deg, 40%, 52%);
+}
+main .comment--section .header .controls .reply:hover p, main .comment--section .header .controls .edit:hover p {
+  color: hsl(239deg, 57%, 85%);
+}
+main .comment--section .header .controls .reply:hover svg, main .comment--section .header .controls .edit:hover svg {
+  fill: hsl(239deg, 57%, 85%);
+}
 main .comment--section .header .controls .delete p {
   color: hsl(358deg, 79%, 66%);
+}
+main .comment--section .header .controls .delete svg {
+  fill: hsl(358deg, 79%, 66%);
+}
+main .comment--section .header .controls .delete:hover p {
+  color: hsl(357deg, 100%, 86%);
+}
+main .comment--section .header .controls .delete:hover svg {
+  fill: hsl(357deg, 100%, 86%);
 }
 main .comment--section .header .controls div {
   margin-left: 10px;
@@ -172,7 +186,6 @@ main .comment--reply textarea:focus, main .comment--add textarea:focus {
 main .comment--reply button, main .comment--add button {
   padding: 10px 30px;
   border-radius: 7px;
-  background-color: hsl(238deg, 40%, 52%);
   border: none;
   color: hsl(0deg, 0%, 100%);
 }
@@ -194,6 +207,14 @@ main .comment--reply button, main .comment--add button {
   width: 90%;
 }
 
-.reply:hover, .edit:hover, .delete:hover, .button--update:hover {
+.button--reply, .button--update, .send {
+  background-color: hsl(238deg, 40%, 52%);
+}
+
+.button--reply:hover, .edit:hover, .delete:hover, .button--update:hover, .send:hover, .reply:hover {
   cursor: pointer;
+}
+
+.button--reply:hover, .button--update:hover, .send:hover {
+  background-color: hsl(239deg, 57%, 85%);
 }/*# sourceMappingURL=styles.css.map */

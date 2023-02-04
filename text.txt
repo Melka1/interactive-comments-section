@@ -149,3 +149,31 @@
         </div>
       </div>
     </div>
+
+
+
+
+to connect to firebase
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBWBkqb3Kr5U8rfRcdizX8Tbd37YrkJxZA",
+    authDomain: "interactive-comment-sect-563db.firebaseapp.com",
+    projectId: "interactive-comment-sect-563db",
+    storageBucket: "interactive-comment-sect-563db.appspot.com",
+    messagingSenderId: "874322686123",
+    appId: "1:874322686123:web:d27f0019fe6dba09cdc7ee",
+    measurementId: "G-965MDYD15V"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>

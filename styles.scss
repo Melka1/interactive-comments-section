@@ -51,7 +51,7 @@ main {
         }
         .score {
             padding: 10px 7px;
-            // width: 50px;
+            align-items: center;
             align-self: flex-start;
             border-radius: 5px;
             justify-content: center;
@@ -65,16 +65,12 @@ main {
                 width: 18px;
                 text-align: center;
             }
-            .plus {
-                height: 10px;
-                width: 10px;
+            svg {
+                fill: $Light-grayish-blue;
             }
-            .minus {
-                height: 2px;
-                width: 10px;
-            }
-            .minus, .plus {
-                margin: auto;
+            svg:hover {
+                fill: $Moderate-blue;
+                cursor: pointer;
             }
         }
         .comment--container {
@@ -83,10 +79,9 @@ main {
            .comment, .timestamp {
             color: $Grayish-Blue;
            }
-           .button--update {
+           button {
             align-self: flex-end;
             padding: 10px 30px;
-            background-color: $Moderate-blue;
             color: white;
             border: none;
             border-radius: 7px;
@@ -117,13 +112,38 @@ main {
             .controls {
                 margin-left: auto;
                 display: flex;
-                .reply p, .edit p {
-                    // font-weight: bold;
-                    color: $Moderate-blue;
+                .reply, .edit {
+                    p {
+                        color: $Moderate-blue;
+                    }
+                    svg {
+                        fill: $Moderate-blue;
+                    }
+                    &:hover {
+                        p {
+                            color: $Light-grayish-blue;
+                        }
+                        svg {
+                            fill: $Light-grayish-blue;
+                        }
+                    }
                 }
-                .delete p {
-                    // font-weight: bold;
-                    color: $Soft-Red;
+
+                .delete {
+                    p {
+                        color: $Soft-Red;
+                    }
+                    svg {
+                        fill: $Soft-Red;
+                    }
+                    &:hover {
+                        p {
+                            color: $Pale-red;
+                        }
+                        svg {
+                            fill: $Pale-red;
+                        }
+                    }
                 }
                 div {
                     margin-left: 10px;
@@ -186,7 +206,6 @@ main {
         button {
             padding: 10px 30px;
             border-radius: 7px;
-            background-color: $Moderate-blue;
             border: none;
             color: $White;
         }
@@ -213,6 +232,13 @@ main {
     width:90%;
 }
 
-.reply:hover, .edit:hover, .delete:hover, .button--update:hover {
+
+.button--reply, .button--update, .send {
+    background-color: $Moderate-blue;
+}
+.button--reply:hover, .edit:hover, .delete:hover, .button--update:hover, .send:hover, .reply:hover {
     cursor: pointer;
+}
+.button--reply:hover, .button--update:hover, .send:hover {
+    background-color: $Light-grayish-blue;
 }
