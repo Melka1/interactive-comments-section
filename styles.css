@@ -24,21 +24,34 @@ main {
   min-height: 500px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 main .comment--section {
-  padding: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  border-radius: 10px;
-  background-color: hsl(0deg, 0%, 100%);
+  padding: 10px 0;
 }
-main .comment--section .score, main .comment--section .comment--container {
+main .comment--container {
+  padding: 20px;
+  display: grid;
+  border-radius: 10px;
+  grid-template-columns: 30px 1fr 1fr;
+  grid-template-rows: 40px 1fr;
+  gap: 15px;
+  background-color: white;
+}
+main .comment--container .comment, main .comment--container .timestamp {
+  color: hsl(211deg, 10%, 45%);
+}
+main .comment--container button {
+  align-self: flex-end;
+  padding: 10px 30px;
+  color: white;
+  border: none;
+  border-radius: 7px;
+}
+main .comment--container .score {
   display: flex;
   flex-direction: column;
-}
-main .comment--section .score {
+  grid-column: 1/2;
+  grid-row: 1/-1;
   padding: 10px 7px;
   align-items: center;
   align-self: flex-start;
@@ -48,98 +61,91 @@ main .comment--section .score {
   border: none;
   gap: 15px;
 }
-main .comment--section .score p {
+main .comment--container .score p {
   color: hsl(238deg, 40%, 52%);
   font-weight: bold;
   width: 18px;
   text-align: center;
 }
-main .comment--section .score svg {
+main .comment--container .score svg {
   fill: hsl(239deg, 57%, 85%);
 }
-main .comment--section .score svg:hover {
+main .comment--container .score svg:hover {
   fill: hsl(238deg, 40%, 52%);
   cursor: pointer;
 }
-main .comment--section .comment--container {
-  gap: 15px;
-  width: 100%;
-}
-main .comment--section .comment--container .comment, main .comment--section .comment--container .timestamp {
-  color: hsl(211deg, 10%, 45%);
-}
-main .comment--section .comment--container button {
-  align-self: flex-end;
-  padding: 10px 30px;
-  color: white;
-  border: none;
-  border-radius: 7px;
-}
-main .comment--section .header {
+main .comment--container .header {
+  grid-column: 2/3;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-main .comment--section .header .profile--pic {
+main .comment--container .header .profile--pic {
   width: 35px;
   height: 35px;
 }
-main .comment--section .header .name {
+main .comment--container .header .name {
   font-weight: bold;
   color: hsl(212deg, 24%, 26%);
 }
-main .comment--section .header .name, main .comment--section .header .timestamp, main .comment--section .header .who {
+main .comment--container .header .name, main .comment--container .header .timestamp, main .comment--container .header .who {
   margin-left: 10px;
 }
-main .comment--section .header .who {
+main .comment--container .header .who {
   padding: 2px 5px;
   background-color: hsl(238deg, 40%, 52%);
   color: hsl(0deg, 0%, 100%);
   border-radius: 4px;
   font-size: 0.8rem;
 }
-main .comment--section .header .controls {
+main .comment--container .controls {
+  grid-column: 3/-1;
   margin-left: auto;
   display: flex;
+  align-items: center;
 }
-main .comment--section .header .controls .reply p, main .comment--section .header .controls .edit p {
+main .comment--container .controls .reply p, main .comment--container .controls .edit p {
   color: hsl(238deg, 40%, 52%);
 }
-main .comment--section .header .controls .reply svg, main .comment--section .header .controls .edit svg {
+main .comment--container .controls .reply svg, main .comment--container .controls .edit svg {
   fill: hsl(238deg, 40%, 52%);
 }
-main .comment--section .header .controls .reply:hover p, main .comment--section .header .controls .edit:hover p {
+main .comment--container .controls .reply:hover p, main .comment--container .controls .edit:hover p {
   color: hsl(239deg, 57%, 85%);
 }
-main .comment--section .header .controls .reply:hover svg, main .comment--section .header .controls .edit:hover svg {
+main .comment--container .controls .reply:hover svg, main .comment--container .controls .edit:hover svg {
   fill: hsl(239deg, 57%, 85%);
 }
-main .comment--section .header .controls .delete p {
+main .comment--container .controls .delete p {
   color: hsl(358deg, 79%, 66%);
 }
-main .comment--section .header .controls .delete svg {
+main .comment--container .controls .delete svg {
   fill: hsl(358deg, 79%, 66%);
 }
-main .comment--section .header .controls .delete:hover p {
+main .comment--container .controls .delete:hover p {
   color: hsl(357deg, 100%, 86%);
 }
-main .comment--section .header .controls .delete:hover svg {
+main .comment--container .controls .delete:hover svg {
   fill: hsl(357deg, 100%, 86%);
 }
-main .comment--section .header .controls div {
+main .comment--container .controls div {
   margin-left: 10px;
 }
-main .comment--section .header .controls * {
+main .comment--container .controls * {
   display: inline-block;
   font-weight: bold;
 }
-main .comment--section .comment--content {
+main .comment--container .comment--content {
+  grid-column: 2/-1;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-main .comment--section .comment--content .comment, main .comment--section .comment--content textarea {
+main .comment--container .comment--content .comment, main .comment--container .comment--content textarea {
   line-height: 1.5rem;
 }
-main .comment--section .comment--content textarea {
+main .comment--container .comment--content textarea {
   width: 100%;
   height: 120px;
   padding: 15px;
@@ -151,24 +157,33 @@ main .comment--section .comment--content textarea {
   color: hsl(211deg, 10%, 45%);
   resize: none;
 }
-main .comment--section .comment--content textarea:focus {
+main .comment--container .comment--content textarea:focus {
   border-color: hsl(238deg, 40%, 52%);
 }
-main .comment--reply, main .comment--add {
+main .comment--container .comment--content .button--update {
+  width: 100px;
+  height: 40px;
+}
+main .comment--add {
+  margin-top: 10px;
+}
+main .reply--container, main .comment--add {
   padding: 20px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 20px;
   border-radius: 10px;
   background-color: hsl(0deg, 0%, 100%);
+  justify-content: space-between;
 }
-main .comment--reply img, main .comment--add img {
+main .reply--container img, main .comment--add img {
   width: 40px;
   height: 40px;
 }
-main .comment--reply textarea, main .comment--add textarea {
-  width: 100%;
+main .reply--container textarea, main .comment--add textarea {
+  width: 70%;
   height: 100px;
   padding: 15px;
   font-size: 1rem;
@@ -179,11 +194,12 @@ main .comment--reply textarea, main .comment--add textarea {
   color: hsl(211deg, 10%, 45%);
   resize: none;
 }
-main .comment--reply textarea:focus, main .comment--add textarea:focus {
+main .reply--container textarea:focus, main .comment--add textarea:focus {
   border-color: hsl(238deg, 40%, 52%);
 }
-main .comment--reply button, main .comment--add button {
-  padding: 10px 30px;
+main .reply--container button, main .comment--add button {
+  width: 100px;
+  height: 40px;
   border-radius: 7px;
   border: none;
   color: hsl(0deg, 0%, 100%);
@@ -203,7 +219,11 @@ main .comment--reply button, main .comment--add button {
 
 .sub {
   align-self: flex-end;
-  width: 90%;
+  width: 95%;
+  border-left: 1px solid hsl(239deg, 57%, 85%);
+}
+.sub .comment--container, .sub .reply--container {
+  margin-left: 30px;
 }
 
 .button--reply, .button--update, .send {
@@ -279,4 +299,87 @@ main .comment--reply button, main .comment--add button {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
   padding: 10px 30px;
+}
+
+@media screen and (width <= 375px) {
+  main .comment--container .header .profile--pic {
+    width: 30px;
+    height: 30px;
+  }
+  body {
+    font-size: 12px;
+    padding: 25px 10px;
+  }
+  body main {
+    width: 95%;
+  }
+  body main .comment--container {
+    grid-template-rows: 30px 1fr 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  body main .comment--container .score {
+    grid-column: 1/2;
+    grid-row: 3/-1;
+    margin-right: auto;
+    flex-direction: row;
+  }
+  body main .comment--container .header {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+  }
+  body main .comment--container .controls {
+    grid-column: 2/-1;
+    grid-row: 3/-1;
+  }
+  body main .comment--container .comment--content {
+    grid-column: 1/-1;
+  }
+  body main .sub .comment--container, body main .sub .reply--container {
+    margin-left: 15px;
+  }
+  body main .sub {
+    width: 100%;
+  }
+  body main .comment--container .comment--content .button--update {
+    height: 30px;
+    font-size: 0.75rem;
+  }
+  body main .comment--container .comment--content textarea {
+    font-size: 0.75rem;
+    padding: 5px 7px;
+  }
+  body main .reply--container, body main .comment--add, body .reply--container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 40px;
+    gap: 10px;
+  }
+  body main .reply--container img, body main .comment--add img, body .reply--container img {
+    width: 30px;
+    height: 30px;
+  }
+  body main .reply--container textarea, body main .comment--add textarea, body .reply--container textarea {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    width: initial;
+    font-size: 0.75rem;
+  }
+  body main .reply--container button, body main .comment--add button, body .reply--container button {
+    grid-row: 2/3;
+    grid-column: 2/3;
+    margin-left: auto;
+    height: 30px;
+    font-size: 0.75rem;
+  }
+  body .delete--container .delete--popup {
+    width: 300px;
+    gap: 10px;
+  }
+  body .delete--container .delete--popup h1 {
+    font-size: 1.25rem;
+  }
+  body .delete--container .delete--popup button {
+    padding: 10px 20px;
+  }
 }/*# sourceMappingURL=styles.css.map */

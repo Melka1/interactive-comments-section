@@ -20,9 +20,11 @@ function minus(id){
 
 function handleReply(id, type, username){
     let element = ` <div class="comment--reply ${type}">
-                        <img src="./images/avatars/image-juliusomo.png" alt="">
-                        <textarea name="reply" id="" cols="30" rows="10">@${username}, </textarea>
-                        <button class="button--reply" onclick="handleReplying('${id}', '${type}')">REPLY</button>
+                        <div class="reply--container">
+                            <img src="./images/avatars/image-juliusomo.png" alt="">
+                            <textarea name="reply" id="" cols="30" rows="10">@${username}, </textarea>
+                            <button class="button--reply" onclick="handleReplying('${id}', '${type}')">REPLY</button>
+                        </div>
                     </div>`
     $(`#${id}`).after(element)
 }
@@ -34,7 +36,7 @@ function handleEdit(id, type){
     $(`#${id} .comment--content`).append(element)
     $(`#${id} textarea`).val(comment)
     console.log(id)
-    $(`#${id}`).children(".comment--container").append(`<button onclick="handleUpdate('${id}', '${type}')" class="button--update">UPDATE</button>`)
+    $(`#${id} .comment--content`).append(`<button onclick="handleUpdate('${id}', '${type}')" class="button--update">UPDATE</button>`)
 }
 
 function handleUpdate(id, type){
@@ -46,44 +48,47 @@ function handleUpdate(id, type){
 }
 
 function handleReplying(id, type){
-    let i = 1;
+    let i = 0;
     while(document.querySelector(`#${id}rply${i}`)){
         i++;
     }
 
     let kind = id
-    let number = (type=="sub")?kind.replace("submsg", ""):kind.replace("msg","")
+    let number = (type=="sub")?kind.replace("submsg", ""):kind.replace("mainmsg","")
     let num = parseInt(number)
-    console.log(number, num)
+    console.log(id,number, num)
     let user = JSON.parse(localStorage.getItem("data")).currentUser;
     console.log(user)
-    let comment = $(`#${id}`).next().children('textarea').val()
+    let comment = $(`#${id}`).next().find('textarea').val()
     console.log(comment)
     $(`#${id}`).next().remove()
     let commentSection = `
     <div class="comment--section ${type}"  id="${id}rply${i}">
+        <div class="comment--container">
         <div class="score">
         ${svgPlus(`${id}rply${i}`)}
         <p class="score--number">0</p>
         ${svgMinus(`${id}rply${i}`)}
         </div>
-        <div class="comment--container">
+        
         <div class="header">
             <img class="profile--pic" src="${user.image.png}" alt="">
             <p class="name">${user.username}</p>
             <p class="who">you</p>
             <p class="timestamp">Now</p>
-            <div class="controls">
-                <div class="delete" onclick="handleDelete('${id}rply${i}')">
-                    ${svgDelete}
-                    <p>Delete</p>
-                </div>
-                <div class="edit"  onclick="handleEdit('${id}rply${i}', '${type}')">
-                    ${svgEdit}
-                    <p>Edit</p>
-                </div>
+        </div>
+            
+        <div class="controls">
+            <div class="delete" onclick="handleDelete('${id}rply${i}')">
+                ${svgDelete}
+                <p>Delete</p>
+            </div>
+            <div class="edit"  onclick="handleEdit('${id}rply${i}', '${type}')">
+                ${svgEdit}
+                <p>Edit</p>
             </div>
         </div>
+
         <div class="comment--content">
             <p class="comment"></p>
         </div>
@@ -106,18 +111,21 @@ function handleSend() {
 
     $(".comment--add").before(`
     <div class="comment--section main"  id="mainmsg${i}">
+    <div class="comment--container">
         <div class="score">
         ${svgPlus(`mainmsg${i}`)}
         <p class="score--number">0</p>
         ${svgMinus(`mainmsg${i}`)}
         </div>
-        <div class="comment--container">
+        
         <div class="header">
             <img class="profile--pic" src="${user.image.png}" alt="">
             <p class="name">${userName}</p>
             <p class="who">you</p>
             <p class="timestamp">Now</p>
-            <div class="controls">
+        </div>
+            
+        <div class="controls">
             <div class="delete" onclick="handleDelete('mainmsg${i}')">
                 ${svgDelete}
                 <p>Delete</p>
@@ -126,10 +134,8 @@ function handleSend() {
                 ${svgEdit} 
                 <p>Edit</p>
             </div>
-            <div class="reply">
-            </div>
-            </div>
         </div>
+
         <div class="comment--content">
             <p class="comment">${comment}</p>
         </div>
@@ -180,34 +186,37 @@ const newComment = async()=>{
             element = data.comments.map((com, index)=>{
                 return `
                 <div class="comment--section main"  id="mainmsg${index}">
+                <div class="comment--container">
                     <div class="score">
                         ${svgPlus(`mainmsg${index}`)}
                         <p class="score--number">${com.score}</p>
                         ${svgMinus(`mainmsg${index}`)}
                     </div>
-                    <div class="comment--container">
+                    
                     <div class="header">
                         <img class="profile--pic" src="${com.user.image.png}" alt="">
                         <p class="name">${com.user.username}</p>
                         ${data.currentUser.username==com.user.username?'<p class="who">you</p>':""}
                         <p class="timestamp">${com.createdAt}</p>
-                        <div class="controls">
-                            ${data.currentUser.username==com.user.username?
-                                `<div class="delete" onclick="handleDelete('mainmsg${index}')">
-                                    ${svgDelete}
-                                    <p>Delete</p>
-                                </div>
-                                <div class="edit"  onclick="handleEdit('mainmsg${index}', 'main')">
-                                    ${svgEdit}
-                                    <p>Edit</p>
-                                </div>
-                                </div>`:
-                                `<div class="reply" onclick="handleReply('mainmsg${index}', 'main', '${com.user.username}')" >
-                                    ${svgReply}
-                                    <p>Reply</p>
-                            </div>`}
-                        </div>
                     </div>
+                        
+                    <div class="controls">
+                        ${data.currentUser.username==com.user.username?
+                            `<div class="delete" onclick="handleDelete('mainmsg${index}')">
+                                ${svgDelete}
+                                <p>Delete</p>
+                            </div>
+                            <div class="edit"  onclick="handleEdit('mainmsg${index}', 'main')">
+                                ${svgEdit}
+                                <p>Edit</p>
+                            </div>
+                            </div>`:
+                            `<div class="reply" onclick="handleReply('mainmsg${index}', 'main', '${com.user.username}')" >
+                                ${svgReply}
+                                <p>Reply</p>
+                        </div>`}
+                    </div>
+
                     <div class="comment--content">
                         <p class="comment">${com.content}</p>
                     </div>
@@ -220,37 +229,32 @@ const newComment = async()=>{
                     reply = com.replies.map((reply, ind)=>{
                         return `
                         <div class="comment--section sub"  id="mainmsg${index}submsg${ind}">
+                            <div class="comment--container">
                             <div class="score">
                             ${svgPlus(`mainmsg${index}submsg${ind}`)}
                             <p class="score--number">${reply.score}</p>
                             ${svgMinus(`mainmsg${index}submsg${ind}`)}
                             </div>
-                            <div class="comment--container">
                             <div class="header">
                                 <img class="profile--pic" src="${reply.user.image.png}" alt="">
                                 <p class="name">${reply.user.username}</p>
                                 ${data.currentUser.username==reply.user.username?'<p class="who">you</p>':""}
                                 <p class="timestamp">${reply.createdAt}</p>
-                                <div class="controls">
+                            </div>
+
+                            <div class="controls">
                                 ${data.currentUser.username==reply.user.username?
-                                    `<div class="delete" onclick="handleDelete('mainmsg${index}submsg${ind}')">
-                                        ${svgDelete}
-                                        <p>Delete</p>
-                                    </div>
-                                    <div class="edit"  onclick="handleEdit('mainmsg${index}submsg${ind}', 'sub')">
-                                        ${svgEdit}
-                                        <p>Edit</p>
-                                    </div>
-                                    <div class="reply">
-                                    </div>
+                                `<div class="delete" onclick="handleDelete('mainmsg${index}submsg${ind}')">
+                                    ${svgDelete}
+                                    <p>Delete</p>
+                                </div>
+                                <div class="edit"  onclick="handleEdit('mainmsg${index}submsg${ind}', 'sub')">
+                                    ${svgEdit}
+                                    <p>Edit</p>
                                 </div>`:
-                                    `<div class="delete">
-                                    </div>
-                                    <div class="edit"></div>
-                                    <div class="reply" onclick="handleReply('mainmsg${index}submsg${ind}', 'sub', '${reply.user.username}')" >
-                                        ${svgReply}
-                                        <p>Reply</p>
-                                    </div>
+                                `<div class="reply" onclick="handleReply('mainmsg${index}submsg${ind}', 'sub', '${reply.user.username}')" >
+                                    ${svgReply}
+                                    <p>Reply</p>
                                 </div>`}
                             </div>
                             <div class="comment--content">
