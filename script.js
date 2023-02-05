@@ -44,7 +44,19 @@ function handleUpdate(id, type){
     $(`#${id} textarea`).parent().append(`<p class="comment"></p>`)
     $(`#${id} textarea`).remove()
     $(`#${id} .button--update`).remove()
-    $(`#${id} .comment`).text(comment)
+    $(`#${id} .comment`).html(handleUser(comment))
+}
+
+function handleUser(comment){
+    let regex = /^[@]\w+,*\s*/g; // starts with @ and ends with , and some username in between
+
+    console.log(regex.test(comment))
+    if(comment.match(regex)){
+        console.log(comment.match(regex))
+        let commented = comment.match(regex)
+        comment = comment.replace(regex, `<span class='username'>${commented[0]}</span>`)
+    }
+    return comment
 }
 
 function handleReplying(id, type){
@@ -61,6 +73,7 @@ function handleReplying(id, type){
     console.log(user)
     let comment = $(`#${id}`).next().find('textarea').val()
     console.log(comment)
+
     $(`#${id}`).next().remove()
     let commentSection = `
     <div class="comment--section ${type}"  id="${id}rply${i}">
@@ -95,7 +108,7 @@ function handleReplying(id, type){
         </div>
     </div>`;
   $(`#${id}`).after(commentSection)
-  $(`#${id}rply${i} .comment`).text(comment)
+  $(`#${id}rply${i} .comment`).html(handleUser(comment))
 }
 
 function handleSend() {
@@ -137,7 +150,7 @@ function handleSend() {
         </div>
 
         <div class="comment--content">
-            <p class="comment">${comment}</p>
+            <p class="comment">${handleUser(comment)}</p>
         </div>
         </div>
     </div>`)
@@ -176,9 +189,10 @@ function performDelete(id){
 }
 
 
-let element;
-let subElement;
 const newComment = async()=>{
+    let element;
+    let subElement;
+
     await fetch("./data.json")
         .then(res=>res.json())
         .then(data=> {
@@ -218,7 +232,7 @@ const newComment = async()=>{
                     </div>
 
                     <div class="comment--content">
-                        <p class="comment">${com.content}</p>
+                        <p class="comment">${handleUser(com.content)}</p>
                     </div>
                     </div>
                 </div>`
@@ -258,7 +272,7 @@ const newComment = async()=>{
                                 </div>`}
                             </div>
                             <div class="comment--content">
-                                <p class="comment">@${reply.replyingTo}, ${reply.content}</p>
+                                <p class="comment">${handleUser(`@${reply.replyingTo}, ${reply.content}`)}</p>
                             </div>
                             </div>
                         </div>` 

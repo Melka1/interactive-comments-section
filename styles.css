@@ -145,6 +145,10 @@ main .comment--container .comment--content {
 main .comment--container .comment--content .comment, main .comment--container .comment--content textarea {
   line-height: 1.5rem;
 }
+main .comment--container .comment--content .comment .username, main .comment--container .comment--content textarea .username {
+  color: hsl(238deg, 40%, 52%);
+  font-weight: bold;
+}
 main .comment--container .comment--content textarea {
   width: 100%;
   height: 120px;

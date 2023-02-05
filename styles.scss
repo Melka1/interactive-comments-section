@@ -161,6 +161,10 @@ main {
             gap: 10px;
             .comment, textarea {
                 line-height: 1.5rem;
+                .username {
+                    color: $Moderate-blue;
+                    font-weight: bold;
+                }
             }
             textarea {
                 width: 100%;
