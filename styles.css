@@ -237,7 +237,7 @@ main .reply--container button, main .comment--add button {
 .sub {
   align-self: flex-end;
   width: 95%;
-  border-left: 1px solid hsl(239deg, 57%, 85%);
+  border-left: 2px solid hsl(223deg, 19%, 93%);
 }
 .sub .comment--container, .sub .reply--container {
   margin-left: 30px;
