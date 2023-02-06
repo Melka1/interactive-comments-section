@@ -42,17 +42,21 @@ main .comment--container .comment, main .comment--container .timestamp {
 }
 main .comment--container button {
   align-self: flex-end;
-  padding: 10px 30px;
   color: white;
   border: none;
   border-radius: 7px;
+  background-color: transparent;
+}
+main .comment--container .button--update {
+  padding: 5px 10px;
+  background-color: hsl(238deg, 40%, 52%);
 }
 main .comment--container .score {
   display: flex;
   flex-direction: column;
   grid-column: 1/2;
   grid-row: 1/-1;
-  padding: 10px 7px;
+  padding: 10px 5px;
   align-items: center;
   align-self: flex-start;
   border-radius: 5px;
@@ -66,6 +70,10 @@ main .comment--container .score p {
   font-weight: bold;
   width: 18px;
   text-align: center;
+}
+main .comment--container .score button {
+  display: flex;
+  margin: auto;
 }
 main .comment--container .score svg {
   fill: hsl(239deg, 57%, 85%);
@@ -104,6 +112,9 @@ main .comment--container .controls {
   display: flex;
   align-items: center;
 }
+main .comment--container .controls .reply p, main .comment--container .controls .edit p, main .comment--container .controls .delete p {
+  font-size: 1rem;
+}
 main .comment--container .controls .reply p, main .comment--container .controls .edit p {
   color: hsl(238deg, 40%, 52%);
 }
@@ -128,11 +139,13 @@ main .comment--container .controls .delete:hover p {
 main .comment--container .controls .delete:hover svg {
   fill: hsl(357deg, 100%, 86%);
 }
-main .comment--container .controls div {
+main .comment--container .controls button {
+  margin: auto;
   margin-left: 10px;
 }
 main .comment--container .controls * {
-  display: inline-block;
+  display: flex;
+  gap: 5px;
   font-weight: bold;
 }
 main .comment--container .comment--content {
@@ -305,6 +318,10 @@ main .reply--container button, main .comment--add button {
   padding: 10px 30px;
 }
 
+button:disabled:hover {
+  cursor: not-allowed;
+}
+
 @media screen and (width <= 375px) {
   main .comment--container .header .profile--pic {
     width: 30px;
@@ -319,7 +336,7 @@ main .reply--container button, main .comment--add button {
   }
   body main .comment--container {
     grid-template-rows: 30px 1fr 30px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 10px;
   }
   body main .comment--container .score {
@@ -327,6 +344,7 @@ main .reply--container button, main .comment--add button {
     grid-row: 3/-1;
     margin-right: auto;
     flex-direction: row;
+    padding: 5px 10px;
   }
   body main .comment--container .header {
     grid-column: 1/-1;
@@ -335,6 +353,9 @@ main .reply--container button, main .comment--add button {
   body main .comment--container .controls {
     grid-column: 2/-1;
     grid-row: 3/-1;
+  }
+  body main .comment--container .controls .reply p, body main .comment--container .controls .edit p, body main .comment--container .controls .delete p {
+    font-size: 0.8rem;
   }
   body main .comment--container .comment--content {
     grid-column: 1/-1;
